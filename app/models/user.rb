@@ -3,7 +3,11 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: 'author_id'
   has_many :posts, foreign_key: 'author_id'
 
-  def recent_posts(limit = 3)
-    posts.order(created_at: :desc).limit(limit)
-  end
+  after_save :update_post_likes_counter
+
+ private
+
+ def update_post_likes_counter
+  post.increment!(:likescounter)
+ end
 end
