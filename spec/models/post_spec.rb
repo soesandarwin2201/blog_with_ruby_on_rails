@@ -15,9 +15,9 @@ RSpec.describe Post, type: :model do
     expect(post).to_not be_valid
   end
 
-  it 'like counter should be integer or greate than zero' do 
-   post.likescounter = -4
-   expect(post).to_not be_valid
+  it 'like counter should be integer or greate than zero' do
+    post.likescounter = -4
+    expect(post).to_not be_valid
   end
 
   it 'title length should not be greate than 250 chars' do
