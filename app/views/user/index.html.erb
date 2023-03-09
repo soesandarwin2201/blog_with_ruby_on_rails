@@ -6,10 +6,11 @@
 <ul>
 <% @users.each do |u| %>
 <li>
- <div><%= u.photo%></div>
+ <img src="<%= u.photo %>" alt="image">
  <h2><%= link_to u.name, {:action => 'show', :id => u.id}  %></h2>
  <p>Number of posts: <%= u.posts.length %> </p>
   </li>
 <% end %>
 </ul>
+
 <% end %>

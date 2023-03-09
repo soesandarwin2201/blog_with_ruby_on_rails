@@ -1,0 +1,16 @@
+<section id='user-container'>
+<img src="<%= @user.photo %>" alt="image">
+<h1><%= @user.name%></h1>
+<p>Number of post: <%= @user.posts.length%></p>
+</section>
+<p id='user-bio'><%= @user.bio %></>
+<div class='post-container'>
+<% @user.recent_posts.each_with_index do |post,index| %>
+<li>
+<p>Post #<%= index + 1%></p>
+ <h3><%= link_to post.title, controller: "posts", action: "show", user_id: @user.id, post_id: post.id %></h3>
+<p>Comments: <%+ post.comments.length %></p>
+<p>Likes: <%+ post.likes.length %></p>
+</li>
+<% end %>
+</div>
