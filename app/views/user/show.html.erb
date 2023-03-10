@@ -13,4 +13,5 @@
 <p>Likes: <%+ post.likes.length %></p>
 </li>
 <% end %>
+<%= button_to("See all the post", "user/:id/posts", method: :get) %>
 </div>

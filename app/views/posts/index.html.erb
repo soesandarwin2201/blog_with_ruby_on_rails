@@ -7,10 +7,24 @@
 <% @posts.each_with_index do |post,index| %>
 <li>
 <p>Post #<%= index + 1%></p>
-<h3><%= link_to post.title, controller: "posts", action: "show", user_id: @user.id, post_id: post.id %></h3>
+<h3><%= link_to post.title, user_post_path(post.author, post) %>
+</h3>
 <p>Comments: <%+ post.comments.length %></p>
 <p>Likes: <%+ post.likes.length %></p>
 </li>
+<% if post.comments.length === 0 %>
+<li>There are no comments</li>
+<% else %>
+<li>These are current Comments.</li>
+
+<ul class='post-container'>
+<% post.recent_comments.each do |comment| %>
+<li><%= comment.text %></li>
+ 
+<% end %>
+</ul>
+
+<% end %>
 <% end %>
 
 </div>
