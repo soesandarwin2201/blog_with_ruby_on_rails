@@ -4,7 +4,7 @@ class LikeController < ApplicationController
     @like.author = current_user
     @like.post = Post.find(params[:post_id])
     if @like.save
-      redirect_to user_post_path(@like.post.author, @like.post)
+      redirect_to user_posts_path(@like.post.author, @like.post)
     else
       render :new
     end
