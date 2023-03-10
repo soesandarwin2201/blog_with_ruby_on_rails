@@ -1,1 +1,21 @@
-<h1>list of posts for the given person!</h1>
+<section id='post-container'>
+<div id='post-header'>
+<p>Post # <%= @post.id %> by <%= @user.name%></p>
+<p>Comments <% @post.comments.length %>, Likes: <% @post.likes.length %></p>
+</div>
+<p class='post-body'><%= @post.text %></p>
+
+<% if @post.comments.length === 0 %>
+<p>There are no comments</p>
+<% else %>
+<p>These are current Comments.</p>
+
+<ul>
+<% @post.recent_comments.each do |comment| %>
+<li><%= comment.text %></li>
+ 
+<% end %>
+</ul>
+
+<% end %>
+</section>
