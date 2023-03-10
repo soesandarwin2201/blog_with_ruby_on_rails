@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.author = current_user
     if @comment.save
-      redirect_to user_post_path(current_user, @post)
+      redirect_to user_posts_path(current_user, @post)
     else
       render :new
     end
