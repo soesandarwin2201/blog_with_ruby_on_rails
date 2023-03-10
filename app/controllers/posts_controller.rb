@@ -17,17 +17,17 @@ class PostsController < ApplicationController
     @comments = @post.recent_comments
   end
 
-    def create
-      @post = current_user.posts.new(post_params)
+  def create
+    @post = current_user.posts.new(post_params)
 
-      respond_to do |format|
-        if @post.save
-          format.html { redirect_to @post }
-        else
-          format.html { render :new }
-        end
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post }
+      else
+        format.html { render :new }
       end
     end
+  end
 
   private
 
