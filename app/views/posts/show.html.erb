@@ -12,7 +12,10 @@
 
 <ul>
 <% @post.recent_comments.each do |comment| %>
-<li><%= comment.text %></li>
+<li><%= comment.text %> 
+<%= form_with url: "/users/#{@post.author.id}/posts/#{@post.id}/likes" do |f| %>
+      <%= f.submit 'Like' %>
+    <%end%></li>
  
 <% end %>
 </ul>
