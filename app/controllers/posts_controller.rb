@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @posts = @user.posts
   end
 
-  def new 
+  def new
     @post = Post.new
     respond_to do |format|
       format.html { render :new, locals: { post: @post } }
@@ -17,26 +17,26 @@ class PostsController < ApplicationController
     @comments = @post.recent_comments
   end
 
-  def create 
-  @post = Post.new(
-    title: post_params[:title],
-    text: post_params[:text],
-    author: current_user,
-    commentscounter: 0,
-    likescounter: 0
-  )
-  if @post.save
-    @post.update_user_posts_counter
-    redirect_to user_posts_path current_user.id
-  else
-    render :new
+  def create
+    @post = Post.new(
+      title: post_params[:title],
+      text: post_params[:text],
+      author: current_user,
+      commentscounter: 0,
+      likescounter: 0
+    )
+    if @post.save
+      @post.update_user_posts_counter
+      redirect_to user_posts_path current_user.id
+    else
+      render :new
+    end
   end
-end
 
 
   private
 
   def post_params
-    params.require(:post).permit(:title,:text)
+    params.require(:post).permit(:title, :text)
   end
 end
