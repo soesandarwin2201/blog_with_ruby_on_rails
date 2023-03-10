@@ -9,8 +9,8 @@
 <li>
 <p>Post #<%= index + 1%></p>
  <h3><%= link_to post.title, controller: "posts", action: "show", user_id: @user.id, post_id: post.id %></h3>
-<p>Comments: <%+ post.comments.length %></p>
-<p>Likes: <%+ post.likes.length %></p>
+<p>Comments: <%= post.commentscounter %></p>
+<p>Likes: <%= post.likescounter %></p>
 </li>
 <% end %>
 <li><%= button_to("See all the posts", user_posts_path(@user.id), method: :get)  %>
