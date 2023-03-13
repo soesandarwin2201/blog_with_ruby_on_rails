@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :post
   has_many :like
 
-  after_save :update_post_comments_counter
+  after_save :update_posts_comments_counter
 
   private
 
