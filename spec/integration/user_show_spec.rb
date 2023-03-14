@@ -53,6 +53,5 @@ RSpec.describe 'Test for the user show page', type: :system do
       click_link 'See all the posts'
       expect(page).to have_content('relocation')
     end
-
   end
 end
