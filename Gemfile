@@ -73,8 +73,8 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 5.0.0'
   gem 'capybara'
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'webdrivers'
 end
 
