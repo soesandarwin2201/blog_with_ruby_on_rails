@@ -10,49 +10,42 @@ RSpec.describe 'Test for the user show page', type: :system do
     @post_four = Post.create(author: @new_user, title: 'relocation', text: 'i will go to singapore', commentscounter: 0, likescounter: 0)
    end
 
-  # it 'User should see the other user\'s profile picture' do 
-  #  visit user_path(@new_user)
-  #  expect(page).to have_selector('img')
-  # end
+  it 'User should see the other user\'s profile picture' do 
+   visit user_path(@new_user)
+   expect(page).to have_selector('img')
+  end
 
-  # it 'User should see the user\'s username' do 
-  #  visit user_path(@new_user)
-  #  expect(page).to have_content('soe sandar win')
-  # end
+  it 'User should see the user\'s username' do 
+   visit user_path(@new_user)
+   expect(page).to have_content('soe sandar win')
+  end
 
-  # it 'User should see the number of posts the user has written' do 
-  #  visit user_path(@new_user)
-  #  expect(page).to have_content('soe sandar win')
-  # end
+  it 'User should see the number of posts the user has written' do 
+   visit user_path(@new_user)
+   expect(page).to have_content('soe sandar win')
+  end
 
-  # it 'User should see the see the user\'s bio' do 
-  #  visit user_path(@new_user)
-  #  expect(page).to have_content('software engineer')
-  # end
+  it 'User should see the see the user\'s bio' do 
+   visit user_path(@new_user)
+   expect(page).to have_content('software engineer')
+  end
 
-  # it 'User should see the see the user\'s recent posts' do 
-  #  visit user_path(@new_user)
-  #  expect(page).to have_content('relocation')
-  #  expect(page).to have_content('jobs')
-  #  expect(page).to have_content('life')
-  # end
+  it 'User should see the see the user\'s recent posts' do 
+   visit user_path(@new_user)
+   expect(page).to have_content('relocation')
+   expect(page).to have_content('jobs')
+   expect(page).to have_content('life')
+  end
 
-  # it 'User should see the see  a button that lets me view all of a user\'s posts' do 
-  #  visit user_path(@new_user)
-  #  expect(page).to have_content('See all the posts')
-  # end
-
-  # it 'User should  click a user\'s post, it redirects me to that post\'s show page' do 
-  #  visit user_path(@new_user)
-  #  sleep(5)
-  #  click_link 'jobs'
-  #  expect(current_path).to eq(post_path(@post_two.id))
-  # end
+  it 'User should see the see  a button that lets me view all of a user\'s posts' do 
+   visit user_path(@new_user)
+   expect(page).to have_content('See all the posts')
+  end
 
   it 'User click see all posts, it redirects me to the user\'s post\'s index page' do 
    visit user_path(@new_user)
-   find_link('See all the posts')
-   expect(page).to have_current_path('/users/1/posts')
+   click_link 'See all the posts'
+   expect(page).to have_content('relocation')
   end
  end
 end

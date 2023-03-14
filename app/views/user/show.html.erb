@@ -13,6 +13,7 @@
 <p>Likes: <%= post.likescounter %></p>
 </li>
 <% end %>
-<li><%= button_to("See all the posts", user_posts_path(@user.id), method: :get)  %>
+<li>
+<button><%= link_to 'See all the posts', controller: 'posts', action: 'index', user_id: @user.id %></button>
 </li>
 </div>
