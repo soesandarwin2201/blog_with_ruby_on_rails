@@ -8,6 +8,7 @@ RSpec.describe 'Test for the user show page', type: :system do
     @post_two = Post.create(author: @new_user, title: 'jobs', text: 'I am gonna get a jon in may', commentscounter: 0, likescounter: 0)
     @post_three = Post.create(author: @new_user, title: 'life', text: 'i will get out of this life', commentscounter: 0, likescounter: 0)
     @post_four = Post.create(author: @new_user, title: 'relocation', text: 'i will go to singapore', commentscounter: 0, likescounter: 0)
+    @post_five = Post.create(author: @new_user, title: 'Nizam', text: 'I will visit the Europe', commentscounter: 0, likescounter: 0)
    end
 
   it 'User should see the other user\'s profile picture' do 
@@ -46,6 +47,11 @@ RSpec.describe 'Test for the user show page', type: :system do
    visit user_path(@new_user)
    click_link 'See all the posts'
    expect(page).to have_content('relocation')
+  end
+
+  it 'User should see the new post' do
+    visit user_path(@new_user)
+    expect(page).to have_content('Nizam')
   end
  end
 end
