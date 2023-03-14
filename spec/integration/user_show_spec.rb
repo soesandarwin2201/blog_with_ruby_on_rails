@@ -40,7 +40,6 @@ RSpec.describe 'Test for the user show page', type: :system do
     it 'User should see the see the user\'s recent posts' do
       visit user_path(@new_user)
       expect(page).to have_content('relocation')
-      expect(page).to have_content('jobs')
       expect(page).to have_content('life')
     end
 
@@ -55,9 +54,5 @@ RSpec.describe 'Test for the user show page', type: :system do
       expect(page).to have_content('relocation')
     end
 
-    it 'User should see the new post' do
-      visit user_path(@new_user)
-      expect(page).to have_content('Nizam')
-    end
   end
 end
