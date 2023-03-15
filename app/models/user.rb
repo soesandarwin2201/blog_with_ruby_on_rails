@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   has_many :comments, foreign_key: 'author_id'
   has_many :like, foreign_key: 'author_id'
   has_many :posts, foreign_key: 'author_id'
@@ -8,5 +12,11 @@ class User < ApplicationRecord
 
   def recent_posts(limit = 3)
     posts.order(created_at: :desc).limit(limit)
+  end
+
+  def init
+    return unless postscounter.nil?
+
+    self.postscounter = 0
   end
 end

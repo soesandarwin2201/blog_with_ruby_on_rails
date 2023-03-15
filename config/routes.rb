@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'like/new'
   root 'user#index'
   resources :user, only: [:index, :show] do 
