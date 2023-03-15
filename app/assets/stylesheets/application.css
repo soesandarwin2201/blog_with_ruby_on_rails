@@ -62,11 +62,12 @@ img {
 .signup-container {
   margin: auto;
   width: 25%;
+
   /* border: 3px solid green; */
   padding: 10px;
   background-color: rgb(55, 111, 253);
   border-radius: 10px;
-  box-shadow: 0 0 10px #888888;
+  box-shadow: 0 0 10px #888;
 }
 
 .signup-container h2 {
@@ -87,7 +88,7 @@ img {
 }
 
 .form-button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4caf50; /* Green */
   border: none;
   color: white;
   padding: 16px 32px;
@@ -102,24 +103,17 @@ img {
   border-radius: 5px;
 }
 
-.form-button {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-}
-
 .form-button:hover {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
-
-nav{
+nav {
   width: 100%;
   margin-bottom: 3rem;
 }
 
-.nav-menu{
+.nav-menu {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -137,7 +131,7 @@ nav{
   font-size: larger;
 }
 
-.signin-container{
+.signin-container {
   display: flex;
   justify-content: center;
   width: 100%;
